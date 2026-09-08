@@ -10,7 +10,7 @@ terraform {
 provider "docker" {}
 
 resource "docker_network" "app_network" {
-  name = "notes_network"
+  name = "var.network_name"
 }
 
 resource "docker_image" "mongodb" {
@@ -18,7 +18,7 @@ resource "docker_image" "mongodb" {
 }
 
 resource "docker_container" "mongodb_container" {
-  name  = "mongodb"
+  name  = "var.mongodb_container_name"
   image = docker_image.mongodb.image_id
 
   networks_advanced {
@@ -37,15 +37,15 @@ resource "docker_image" "notes_api" {
 }
 
 resource "docker_container" "notes_api_container" {
-  name  = "notes-api"
+  name  = "var.notes_api_container_name"
   image = docker_image.notes_api.image_id
 
   networks_advanced {
     name = docker_network.app_network.name
   }
   ports {
-    internal = 3000
-    external = 3000
+    internal = var.notes_api_port
+    external = var.notes_api_port
   }
 
   env = [
