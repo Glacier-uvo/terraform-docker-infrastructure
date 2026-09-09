@@ -1,4 +1,4 @@
-name: My First GitHub Actions Workflow
+name: My Second GitHub Actions Workflow
 
 on:
   push:
@@ -8,5 +8,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Test failure
-        run: exit 1
+      - name: first step but 2nd workf
+        run: echo "this is my second workflow'
