@@ -8,5 +8,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: first step but 2nd workf
+      - name: Say hello
         run: echo "this is my second workflow'
