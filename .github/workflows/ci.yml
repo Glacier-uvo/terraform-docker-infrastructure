@@ -8,5 +8,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Say hello
-        run: echo "Hello from GitHub Actions!"
+      - name: Test failure
+        run: exit 1
