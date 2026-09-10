@@ -1,12 +1,20 @@
-name: My Second GitHub Actions Workflow
-
+name: My GitHub workflow
 on:
   push:
 
 jobs:
-  hello:
+  npm-node-job:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Say hello
-        run: echo "this is my second workflow"
+      - name: checkout repository
+        uses: actions/checkout@v4
+
+      - name: print node version
+        run: node --version
+
+      - name: print npm version
+        run: npm --version
+
+      - name: install dependencies
+        run: npm ci
